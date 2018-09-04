@@ -1,0 +1,5 @@
+name = Zoho CRM Unofficial API connector
+description = Zoho CRM unofficial connection for Drupal
+core = 7.x
+version = 7.x-0.1
+

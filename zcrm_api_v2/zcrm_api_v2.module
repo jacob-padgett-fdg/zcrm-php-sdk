@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * @file
+ * ZohoCRM (Unofficial) API v2 Connector module.
+ *
+ * Provides an unofficial connection between Drupal and ZohoCRM APIv2.
+ */
+
+define('ZOHO_CRM_API_VERSION', '2');
+
+/**
+ *
+ */
