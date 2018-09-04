@@ -8,36 +8,36 @@ require_once 'ZCRMRecord.php';
  */
 class ZCRMInventoryLineItem
 {
-	private $id=null;
-	private $product=null;
-	private $listPrice=null;
-	private $quantity=null;
-	private $description=null;
-	private $total=null;
-	private $discount=null;
-	private $discountPercentage=null;
-	private $totalAfterDiscount=null;
-	private $taxAmount=null;
-	private $netTotal=null;
-	private $deleteFlag = false;
-	private $lineTax = array();
-	private function __construct($param)
-	{
-		if($param instanceof ZCRMRecord)
-		{
-			$this->product=$param;
-		}
-		else
-		{
-			$this->id=$param;
-		}
-	}
-	
-	public static function getInstance($param)
-	{
-		return new ZCRMInventoryLineItem($param);
-	}
-	
+  private $id=null;
+  private $product=null;
+  private $listPrice=null;
+  private $quantity=null;
+  private $description=null;
+  private $total=null;
+  private $discount=null;
+  private $discountPercentage=null;
+  private $totalAfterDiscount=null;
+  private $taxAmount=null;
+  private $netTotal=null;
+  private $deleteFlag = false;
+  private $lineTax = array();
+  private function __construct($param)
+  {
+    if($param instanceof ZCRMRecord)
+    {
+      $this->product=$param;
+    }
+    else
+    {
+      $this->id=$param;
+    }
+  }
+
+  public static function getInstance($param)
+  {
+    return new ZCRMInventoryLineItem($param);
+  }
+
 
     /**
      * id
@@ -244,7 +244,7 @@ class ZCRMInventoryLineItem
      * @param Array of ZCRMTax $lineTax
      */
     public function addLineTax($lineTax){
-    	array_push($this->lineTax,$lineTax);
+      array_push($this->lineTax,$lineTax);
     }
 
 }

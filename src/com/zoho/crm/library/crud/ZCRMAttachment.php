@@ -2,32 +2,32 @@
 require_once 'ZCRMModuleRelation.php';
 class ZCRMAttachment
 {
-	private $id=null;
-	private $fileName=null;
-	private $fileType=null;
-	private $size=null;
-	private $owner=null;
-	private $createdBy=null;
-	private $createdTime=null;
-	private $modifiedBy=null;
-	private $modifiedTime=null;
-	
-	private $parentRecord=null;
-	private $parentModule=null;
-	private $attachmentType=null;
-	private $parentName=null;
-	private $parentId=null;
-	
-	private function __construct($parentRecord,$attachmentId)
-	{
-		$this->parentRecord=$parentRecord;
-		$this->id=$attachmentId;
-	}
-	
-	public static function getInstance($parentRecord,$attachmentId=null)
-	{
-		return new ZCRMAttachment($parentRecord,$attachmentId);
-	}
+  private $id=null;
+  private $fileName=null;
+  private $fileType=null;
+  private $size=null;
+  private $owner=null;
+  private $createdBy=null;
+  private $createdTime=null;
+  private $modifiedBy=null;
+  private $modifiedTime=null;
+
+  private $parentRecord=null;
+  private $parentModule=null;
+  private $attachmentType=null;
+  private $parentName=null;
+  private $parentId=null;
+
+  private function __construct($parentRecord,$attachmentId)
+  {
+    $this->parentRecord=$parentRecord;
+    $this->id=$attachmentId;
+  }
+
+  public static function getInstance($parentRecord,$attachmentId=null)
+  {
+    return new ZCRMAttachment($parentRecord,$attachmentId);
+  }
 
     /**
      * id
@@ -222,42 +222,42 @@ class ZCRMAttachment
     public function setAttachmentType($attachmentType){
         $this->attachmentType = $attachmentType;
     }
-    
+
     /**
      * parentName
      * @return String
      */
     public function getParentName(){
-    	return $this->parentName;
+      return $this->parentName;
     }
-    
+
     /**
      * parentName
      * @param String $parentName
      */
     public function setParentName($parentName){
-    	$this->parentName = $parentName;
+      $this->parentName = $parentName;
     }
-    
+
     /**
      * parentId
      * @return Long
      */
     public function getParentId(){
-    	return $this->parentId;
+      return $this->parentId;
     }
-    
+
     /**
      * parentId
      * @param Long $parentId
      */
     public function setParentId($parentId){
-    	$this->parentId = $parentId;
+      $this->parentId = $parentId;
     }
-    
+
     public function downloadFile()
     {
-    	return ZCRMModuleRelation::getInstance($this->parentRecord, "Attachments")->downloadAttachment($this->id);
+      return ZCRMModuleRelation::getInstance($this->parentRecord, "Attachments")->downloadAttachment($this->id);
     }
 
 }

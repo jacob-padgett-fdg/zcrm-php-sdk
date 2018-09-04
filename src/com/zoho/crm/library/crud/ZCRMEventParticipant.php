@@ -2,23 +2,23 @@
 
 class ZCRMEventParticipant
 {
-	private $email=null;
-	private $name=null;
-	private $id=null;
-	private $type=null;
-	private $isInvited=null;
-	private $status=null;
-	
-	private function __construct($type,$id)
-	{
-		$this->type=$type;
-		$this->id=$id;
-	}
-	
-	public static function getInstance($type,$id)
-	{
-		return new ZCRMEventParticipant($type,$id);
-	}
+  private $email=null;
+  private $name=null;
+  private $id=null;
+  private $type=null;
+  private $isInvited=null;
+  private $status=null;
+
+  private function __construct($type,$id)
+  {
+    $this->type=$type;
+    $this->id=$id;
+  }
+
+  public static function getInstance($type,$id)
+  {
+    return new ZCRMEventParticipant($type,$id);
+  }
 
     /**
      * email

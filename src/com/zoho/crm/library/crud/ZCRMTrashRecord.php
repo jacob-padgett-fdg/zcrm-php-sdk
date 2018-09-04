@@ -2,22 +2,22 @@
 
 class ZCRMTrashRecord
 {
-	private $entityId = null;
-	private $displayName;
-	private $type;
-	private $deletedTime;
-	private $createdBy;
-	private $deletedBy;
+  private $entityId = null;
+  private $displayName;
+  private $type;
+  private $deletedTime;
+  private $createdBy;
+  private $deletedBy;
 
-	private function __construct($type,$id)
-	{
-		$this->type=$type;
-		$this->entityId=$id;
-	}
-	public static function getInstance($type,$id=null)
-	{
-		return new ZCRMTrashRecord($type,$id);
-	}
+  private function __construct($type,$id)
+  {
+    $this->type=$type;
+    $this->entityId=$id;
+  }
+  public static function getInstance($type,$id=null)
+  {
+    return new ZCRMTrashRecord($type,$id);
+  }
     /**
      * entityId
      * @return Long

@@ -2,19 +2,19 @@
 
 class ZCRMPriceBookPricing
 {
-	private $id=null;
-	private $toRange=null;
-	private $fromRange=null;
-	private $discount=null;
-	
-	private function __construct($id)
-	{
-		$this->id=$id;
-	}
-	public static function getInstance($id)
-	{
-		return new ZCRMPriceBookPricing($id);
-	}
+  private $id=null;
+  private $toRange=null;
+  private $fromRange=null;
+  private $discount=null;
+
+  private function __construct($id)
+  {
+    $this->id=$id;
+  }
+  public static function getInstance($id)
+  {
+    return new ZCRMPriceBookPricing($id);
+  }
 
     /**
      * id

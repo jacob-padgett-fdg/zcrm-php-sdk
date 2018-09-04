@@ -3,18 +3,18 @@ require_once realpath(dirname(__FILE__)."/../../common/APIConstants.php");
 
 class ResponseInfo
 {
-	private $moreRecords=null;
-	private $recordCount=null;
-	private $pageNo=null;
-	private $perPage=null;
-	
-	public function __construct($reponseInfoJSON)
-	{
-		$this->moreRecords=(bool)$reponseInfoJSON[APIConstants::MORE_RECORDS];
-		$this->recordCount=$reponseInfoJSON[APIConstants::COUNT]+0;
-		$this->pageNo=$reponseInfoJSON[APIConstants::PAGE]+0;
-		$this->perPage=$reponseInfoJSON[APIConstants::PER_PAGE]+0;
-	}
+  private $moreRecords=null;
+  private $recordCount=null;
+  private $pageNo=null;
+  private $perPage=null;
+
+  public function __construct($reponseInfoJSON)
+  {
+    $this->moreRecords=(bool)$reponseInfoJSON[APIConstants::MORE_RECORDS];
+    $this->recordCount=$reponseInfoJSON[APIConstants::COUNT]+0;
+    $this->pageNo=$reponseInfoJSON[APIConstants::PAGE]+0;
+    $this->perPage=$reponseInfoJSON[APIConstants::PER_PAGE]+0;
+  }
 
     /**
      * moreRecords

@@ -2,33 +2,33 @@
 
 class ZCRMNote
 {
-	private $id=null;
-	private $title=null;
-	private $content=null;
-	
-	private $parentRecord=null;
-	private $owner=null;
-	private $createdBy=null;
-	private $createdTime=null;
-	private $modifiedBy=null;
-	private $modifiedTime=null;
-	private $attachments=null;
-	private $size=null;
-	private $voiceNote=null;
-	private $parentModule=null;
-	private $parentName=null;
-	private $parentId=null;
-	
-	private function __construct($parentRecord,$noteId)
-	{
-		$this->parentRecord=$parentRecord;
-		$this->id=$noteId;
-	}
-	
-	public static function getInstance($parentRecord,$noteId=null)
-	{
-		return new ZCRMNote($parentRecord,$noteId);
-	}
+  private $id=null;
+  private $title=null;
+  private $content=null;
+
+  private $parentRecord=null;
+  private $owner=null;
+  private $createdBy=null;
+  private $createdTime=null;
+  private $modifiedBy=null;
+  private $modifiedTime=null;
+  private $attachments=null;
+  private $size=null;
+  private $voiceNote=null;
+  private $parentModule=null;
+  private $parentName=null;
+  private $parentId=null;
+
+  private function __construct($parentRecord,$noteId)
+  {
+    $this->parentRecord=$parentRecord;
+    $this->id=$noteId;
+  }
+
+  public static function getInstance($parentRecord,$noteId=null)
+  {
+    return new ZCRMNote($parentRecord,$noteId);
+  }
 
     /**
      * id

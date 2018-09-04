@@ -2,33 +2,33 @@
 
 class ZCRMCustomView
 {
-	private $moduleAPIName=null;
-	private $displayValue=null;
-	private $default=null;
-	private $id=null;
-	private $name=null;
-	private $systemName=null;
-	private $sortBy=null;
-	private $category=null;
-	private $fields=array();
-	private $favorite=null;
-	private $sortOrder=null;
-	private $criteriaPattern=null;
-	private $criteria=null;
-	private $categoriesList=array();
-	private $offLine=null;
-	
-	public function __construct($moduleAPIName,$id)
-	{
-		$this->moduleAPIName=$moduleAPIName;
-		$this->id=$id;
-	}
-	
-	public static function getInstance($moduleAPIName=null,$id)
-	{
-		return new ZCRMCustomView($moduleAPIName, $id);
-	}
-	
+  private $moduleAPIName=null;
+  private $displayValue=null;
+  private $default=null;
+  private $id=null;
+  private $name=null;
+  private $systemName=null;
+  private $sortBy=null;
+  private $category=null;
+  private $fields=array();
+  private $favorite=null;
+  private $sortOrder=null;
+  private $criteriaPattern=null;
+  private $criteria=null;
+  private $categoriesList=array();
+  private $offLine=null;
+
+  public function __construct($moduleAPIName,$id)
+  {
+    $this->moduleAPIName=$moduleAPIName;
+    $this->id=$id;
+  }
+
+  public static function getInstance($moduleAPIName=null,$id)
+  {
+    return new ZCRMCustomView($moduleAPIName, $id);
+  }
+
 
     /**
      * Get the display Name of the customView
@@ -204,21 +204,21 @@ class ZCRMCustomView
     public function setCriteriaPattern($criteriaPattern){
         $this->criteriaPattern = $criteriaPattern;
     }
-    
+
     /**
      * Method to get the custom view criteria
      * @return Criteria
      */
     public function getCriteria(){
-    	return $this->criteria;
+      return $this->criteria;
     }
-    
+
     /**
      * Method to set the custom view criteria
      * @param  $criteria
      */
     public function setCriteria($criteria){
-    	$this->criteria = $criteria;
+      $this->criteria = $criteria;
     }
 
 
@@ -229,10 +229,10 @@ class ZCRMCustomView
     public function getModuleAPIName(){
         return $this->moduleAPIName;
     }
-    
+
     public function getRecords(String $sortByField=null, String $sortOrder=null,$startIndex=1,$endIndex=200)
     {
-    	return ZCRMModule::getInstance($apiName)->getRecords($this->id,$sortByField,$sortOrder,$startIndex,$endIndex);
+      return ZCRMModule::getInstance($apiName)->getRecords($this->id,$sortByField,$sortOrder,$startIndex,$endIndex);
     }
 
 
@@ -251,16 +251,16 @@ class ZCRMCustomView
     public function setCategoriesList($categoriesList){
         $this->categoriesList = $categoriesList;
     }
-    
-    
+
+
     public function setOffLine($off_line)
     {
-    	$this->offLine=(boolean)$off_line;
+      $this->offLine=(boolean)$off_line;
     }
-    
+
     public function isOffLine()
     {
-    	return $this->offLine;
+      return $this->offLine;
     }
 
 }

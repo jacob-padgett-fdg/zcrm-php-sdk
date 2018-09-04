@@ -1,27 +1,27 @@
 <?php
 
 /**
- * 
+ *
  * @author sumanth-3058
  *This class is to maintain the details of tax related to Inventory line item
  */
 class ZCRMTax
 {
-	private $taxName=null;
-	private $percentage=null;
-	private $value=null;
-	
-	private function __construct($taxName)
-	{
-		$this->taxName=$taxName;
-	}
-	
-	public static function getInstance($taxName)
-	{
-		return new ZCRMTax($taxName);
-	}
-	
-	
+  private $taxName=null;
+  private $percentage=null;
+  private $value=null;
+
+  private function __construct($taxName)
+  {
+    $this->taxName=$taxName;
+  }
+
+  public static function getInstance($taxName)
+  {
+    return new ZCRMTax($taxName);
+  }
+
+
 
     /**
      * taxName

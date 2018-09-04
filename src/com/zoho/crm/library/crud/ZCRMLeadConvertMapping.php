@@ -2,21 +2,21 @@
 
 class ZCRMLeadConvertMapping
 {
-	private $name;
-	private $id;
-	private $fields=array();
-	
-	private function __construct($name,$id)
-	{
-		$this->name=$name;
-		$this->id=$id;
-	}
-	
-	public static function getInstance($name,$id)
-	{
-		return new ZCRMLeadConvertMapping($name,$id);
-	}
-	
+  private $name;
+  private $id;
+  private $fields=array();
+
+  private function __construct($name,$id)
+  {
+    $this->name=$name;
+    $this->id=$id;
+  }
+
+  public static function getInstance($name,$id)
+  {
+    return new ZCRMLeadConvertMapping($name,$id);
+  }
+
     /**
      * name
      * @return String

@@ -10,45 +10,45 @@ require_once 'ZCRMModuleRelation.php';
  */
 class ZCRMRecord
 {
-	private $entityId=null;
-	private $moduleApiName=null;
-	private $lineItems=array();
-	private $lookupLabel=null;
-	private $owner=null;
-	private $createdBy=null;
-	private $modifiedBy=null;
-	private $createdTime=null;
-	private $modifiedTime=null;
-	
-	private $fieldNameVsValue=array();
-	private $properties = array();
-	private $participants = array();
-	private $priceDetails = array();
-	private $layout=null;
-	private $taxList=array();
-	private $lastActivityTime=null;
-	
-	private function __construct($module,$entityId)
-	{
-		$this->moduleApiName=$module;
-		$this->entityId=$entityId;
-	}
-	
-	public static function getInstance($module,$entityId)
-	{
-		return new ZCRMRecord($module,$entityId);
-	}
+  private $entityId=null;
+  private $moduleApiName=null;
+  private $lineItems=array();
+  private $lookupLabel=null;
+  private $owner=null;
+  private $createdBy=null;
+  private $modifiedBy=null;
+  private $createdTime=null;
+  private $modifiedTime=null;
 
-	
-	public function addTax($taxIns)
-	{
-		array_push($this->taxList,$taxIns);
-	}
-	
-	public function getTaxList()
-	{
-		return $this->taxList;
-	}
+  private $fieldNameVsValue=array();
+  private $properties = array();
+  private $participants = array();
+  private $priceDetails = array();
+  private $layout=null;
+  private $taxList=array();
+  private $lastActivityTime=null;
+
+  private function __construct($module,$entityId)
+  {
+    $this->moduleApiName=$module;
+    $this->entityId=$entityId;
+  }
+
+  public static function getInstance($module,$entityId)
+  {
+    return new ZCRMRecord($module,$entityId);
+  }
+
+
+  public function addTax($taxIns)
+  {
+    array_push($this->taxList,$taxIns);
+  }
+
+  public function getTaxList()
+  {
+    return $this->taxList;
+  }
     /**
      * entityId
      * @return Long
@@ -96,10 +96,10 @@ class ZCRMRecord
     public function setFieldValue($apiName,$value){
         $this->fieldNameVsValue[$apiName] = $value;
     }
-    
+
     public function getData()
     {
-    	return $this->fieldNameVsValue;
+      return $this->fieldNameVsValue;
     }
 
     /**
@@ -213,7 +213,7 @@ class ZCRMRecord
     public function setModifiedTime($modifiedTime){
         $this->modifiedTime = $modifiedTime;
     }
-    
+
     /**
      * Returns the API response of the record creation.
      * @return APIResponse of the record creation.
@@ -221,13 +221,13 @@ class ZCRMRecord
      */
     public function create()
     {
-    	if(self::getEntityId() != null)
-    	{
-    		$exception = new ZCRMException("Entity ID MUST be null for create operation.",APIConstants::RESPONSECODE_BAD_REQUEST);
-    		$exception->setExceptionCode("ID EXIST");
-    		throw $exception;
-    	}
-    	return EntityAPIHandler::getInstance($this)->createRecord();
+      if(self::getEntityId() != null)
+      {
+        $exception = new ZCRMException("Entity ID MUST be null for create operation.",APIConstants::RESPONSECODE_BAD_REQUEST);
+        $exception->setExceptionCode("ID EXIST");
+        throw $exception;
+      }
+      return EntityAPIHandler::getInstance($this)->createRecord();
     }
     /**
      * Returns the API response of the record update.
@@ -236,15 +236,15 @@ class ZCRMRecord
      */
     public function update()
     {
-    	if(self::getEntityId() == null)
-    	{
-    		$exception = new ZCRMException("Entity ID MUST NOT be null for update operation.",APIConstants::RESPONSECODE_BAD_REQUEST);
-    		$exception->setExceptionCode("ID MISSING");
-    		throw $exception;
-    	}
-    	return EntityAPIHandler::getInstance($this)->updateRecord();
+      if(self::getEntityId() == null)
+      {
+        $exception = new ZCRMException("Entity ID MUST NOT be null for update operation.",APIConstants::RESPONSECODE_BAD_REQUEST);
+        $exception->setExceptionCode("ID MISSING");
+        throw $exception;
+      }
+      return EntityAPIHandler::getInstance($this)->updateRecord();
     }
-    
+
     /**
      * Returns the API response of the record delete.
      * @return APIResponse of the record delete.
@@ -252,85 +252,85 @@ class ZCRMRecord
      */
     public function delete()
     {
-    	if(self::getEntityId() == null)
-    	{
-    		$exception= new ZCRMException("Entity ID MUST NOT be null for delete operation.",APIConstants::RESPONSECODE_BAD_REQUEST);
-    		$exception->setExceptionCode("ID MISSING");
-    		throw $exception;
-    	}
-    	return EntityAPIHandler::getInstance($this)->deleteRecord();
+      if(self::getEntityId() == null)
+      {
+        $exception= new ZCRMException("Entity ID MUST NOT be null for delete operation.",APIConstants::RESPONSECODE_BAD_REQUEST);
+        $exception->setExceptionCode("ID MISSING");
+        throw $exception;
+      }
+      return EntityAPIHandler::getInstance($this)->deleteRecord();
     }
-    
+
     public function convert($potentialRecord=null,$assignToUser=null)
     {
-    	return EntityAPIHandler::getInstance($this)->convertRecord($potentialRecord, $assignToUser);
+      return EntityAPIHandler::getInstance($this)->convertRecord($potentialRecord, $assignToUser);
     }
-    
-    public function getRelatedListRecords($relatedListAPIName,$sortByField=null,$sortOrder=null,$page=1, $perPage=20) 
+
+    public function getRelatedListRecords($relatedListAPIName,$sortByField=null,$sortOrder=null,$page=1, $perPage=20)
     {
-    	return ZCRMModuleRelation::getInstance($this,$relatedListAPIName)->getRecords($sortByField,$sortOrder,$page,$perPage);
+      return ZCRMModuleRelation::getInstance($this,$relatedListAPIName)->getRecords($sortByField,$sortOrder,$page,$perPage);
     }
-    
+
     public function getNotes($sortByField=null,$sortOrder=null,$page=1, $perPage=20)
     {
-    	return ZCRMModuleRelation::getInstance($this,"Notes")->getNotes($sortByField,$sortOrder,$page,$perPage);
+      return ZCRMModuleRelation::getInstance($this,"Notes")->getNotes($sortByField,$sortOrder,$page,$perPage);
     }
-    
+
     public function addNote($zcrmNoteIns)
     {
-    	if($zcrmNoteIns->getId()!=null)
-    	{
-    		$exception=new ZCRMException("Note ID MUST be null for creating a note.",APIConstants::RESPONSECODE_BAD_REQUEST);
-    		$exception->setExceptionCode("ID EXIST");
-    		throw $exception;
-    	}
-    	return ZCRMModuleRelation::getInstance($this,"Notes")->addNote($zcrmNoteIns);
+      if($zcrmNoteIns->getId()!=null)
+      {
+        $exception=new ZCRMException("Note ID MUST be null for creating a note.",APIConstants::RESPONSECODE_BAD_REQUEST);
+        $exception->setExceptionCode("ID EXIST");
+        throw $exception;
+      }
+      return ZCRMModuleRelation::getInstance($this,"Notes")->addNote($zcrmNoteIns);
     }
-    
+
     public function updateNote($zcrmNoteIns)
     {
-    	if($zcrmNoteIns->getId()==null)
-    	{
-    		$exception=new ZCRMException("Note ID MUST NOT be null for updating a note.",APIConstants::RESPONSECODE_BAD_REQUEST);
-    		$exception->setExceptionCode("ID MISSING");
-    		throw $exception;
-    	}
-    	return ZCRMModuleRelation::getInstance($this,"Notes")->updateNote($zcrmNoteIns);
+      if($zcrmNoteIns->getId()==null)
+      {
+        $exception=new ZCRMException("Note ID MUST NOT be null for updating a note.",APIConstants::RESPONSECODE_BAD_REQUEST);
+        $exception->setExceptionCode("ID MISSING");
+        throw $exception;
+      }
+      return ZCRMModuleRelation::getInstance($this,"Notes")->updateNote($zcrmNoteIns);
     }
-    
+
     public function deleteNote($zcrmNoteIns)
     {
-    	if($zcrmNoteIns->getId()==null)
-    	{
-    		$exception=new ZCRMException("Note ID MUST NOT be null for deleting a note.",APIConstants::RESPONSECODE_BAD_REQUEST);
-    		$exception->setExceptionCode("ID MISSING");
-    		throw $exception;
-    	}
-    	return ZCRMModuleRelation::getInstance($this,"Notes")->deleteNote($zcrmNoteIns);
+      if($zcrmNoteIns->getId()==null)
+      {
+        $exception=new ZCRMException("Note ID MUST NOT be null for deleting a note.",APIConstants::RESPONSECODE_BAD_REQUEST);
+        $exception->setExceptionCode("ID MISSING");
+        throw $exception;
+      }
+      return ZCRMModuleRelation::getInstance($this,"Notes")->deleteNote($zcrmNoteIns);
     }
-    
+
     public function getAttachments($page=1,$perPage=20)
     {
-    	return ZCRMModuleRelation::getInstance($this,"Attachments")->getAttachments($page,$perPage);
+      return ZCRMModuleRelation::getInstance($this,"Attachments")->getAttachments($page,$perPage);
     }
-    
+
     public function uploadAttachment($filePath)
     {
-    	return ZCRMModuleRelation::getInstance($this,"Attachments")->uploadAttachment($filePath);
+      return ZCRMModuleRelation::getInstance($this,"Attachments")->uploadAttachment($filePath);
     }
-    
+
     public function uploadLinkAsAttachment($attachmentUrl)
     {
-    	return ZCRMModuleRelation::getInstance($this,"Attachments")->uploadLinkAsAttachment($attachmentUrl);
+      return ZCRMModuleRelation::getInstance($this,"Attachments")->uploadLinkAsAttachment($attachmentUrl);
     }
-    
+
     public function downloadAttachment($attachmentId)
     {
-    	return ZCRMModuleRelation::getInstance($this,"Attachments")->downloadAttachment($attachmentId);
+      return ZCRMModuleRelation::getInstance($this,"Attachments")->downloadAttachment($attachmentId);
     }
     public function deleteAttachment($attachmentId)
     {
-    	return ZCRMModuleRelation::getInstance($this,"Attachments")->deleteAttachment($attachmentId);
+      return ZCRMModuleRelation::getInstance($this,"Attachments")->deleteAttachment($attachmentId);
     }
     /**
      * To upload photo to the record
@@ -338,31 +338,31 @@ class ZCRMRecord
      */
     public function uploadPhoto($filePath)
     {
-    	return EntityAPIHandler::getInstance($this)->uploadPhoto($filePath);
+      return EntityAPIHandler::getInstance($this)->uploadPhoto($filePath);
     }
     /**
      * To Download the photo of the record
      */
     public function downloadPhoto()
     {
-    	return EntityAPIHandler::getInstance($this)->downloadPhoto();
+      return EntityAPIHandler::getInstance($this)->downloadPhoto();
     }
-    
+
     /**
      * To Download the photo of the record
      */
     public function deletePhoto()
     {
-    	return EntityAPIHandler::getInstance($this)->deletePhoto();
+      return EntityAPIHandler::getInstance($this)->deletePhoto();
     }
 
     public function addRelation(ZCRMJunctionRecord $junctionRecord)
     {
-    	return ZCRMModuleRelation::getInstance($this, $junctionRecord)->addRelation();
+      return ZCRMModuleRelation::getInstance($this, $junctionRecord)->addRelation();
     }
     public function removeRelation(ZCRMJunctionRecord $junctionRecord)
     {
-    	return ZCRMModuleRelation::getInstance($this, $junctionRecord)->removeRelation();
+      return ZCRMModuleRelation::getInstance($this, $junctionRecord)->removeRelation();
     }
 
     /**
@@ -370,9 +370,9 @@ class ZCRMRecord
      * @return HashMap
      */
     public function getAllProperties(){
-    	return $this->properties;
+      return $this->properties;
     }
-    
+
     /**
      * properties
      * @return HashMap

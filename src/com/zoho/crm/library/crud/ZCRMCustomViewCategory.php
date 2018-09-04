@@ -2,18 +2,18 @@
 
 class ZCRMCustomViewCategory
 {
-	private $displayValue=null;
-	private $actualValue=null;
-	
-	private function __construct()
-	{
-		
-	}
-	
-	public static function getInstance()
-	{
-		return new ZCRMCustomViewCategory();
-	}
+  private $displayValue=null;
+  private $actualValue=null;
+
+  private function __construct()
+  {
+
+  }
+
+  public static function getInstance()
+  {
+    return new ZCRMCustomViewCategory();
+  }
 
     /**
      * get the displayValue of the custom view category

@@ -2,22 +2,22 @@
 
 class ZCRMUserCustomizeInfo
 {
-	private $notesDesc=null;
-	private $isToShowRightPanel=null;
-	private $isBcView=null;
-	private $isToShowHome=null;
-	private $isToShowDetailView=null;
-	private $unpinRecentItem=null;
-	
-	private function __construct()
-	{
-		
-	}
-	
-	public static function getInstance()
-	{
-		return new ZCRMUserCustomizeInfo();
-	}
+  private $notesDesc=null;
+  private $isToShowRightPanel=null;
+  private $isBcView=null;
+  private $isToShowHome=null;
+  private $isToShowDetailView=null;
+  private $unpinRecentItem=null;
+
+  private function __construct()
+  {
+
+  }
+
+  public static function getInstance()
+  {
+    return new ZCRMUserCustomizeInfo();
+  }
 
     /**
      * notesDesc

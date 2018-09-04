@@ -1,85 +1,85 @@
 <?php
 class ZCRMUser
 {
-	private $id=null;
-	private $name=null;
-	private $signature=null;
-	private $country=null;
-	private $role=null;
-	private $customizeInfo=null;
-	private $city=null;
-	private $nameFormat=null;
-	private $language=null;
-	private $locale=null;
-	private $isPersonalAccount=null;
-	private $defaultTabGroup=null;
-	private $street=null;
-	private $alias=null;
-	private $theme=null;
-	private $state=null;
-	private $countryLocale=null;
-	private $fax=null;
-	private $firstName=null;
-	private $email=null;
-	private $zip=null;
-	private $decimalSeparator=null;
-	private $website=null;
-	private $timeFormat=null;
-	private $profile=null;
-	private $mobile=null;
-	private $lastName=null;
-	private $timeZone=null;
-	private $zuid=null;
-	private $isConfirm=null;
-	private $fullName=null;
-	private $phone=null;
-	private $dob=null;
-	private $dateFormat=null;
-	private $status=null;
-	private $createdBy=null;
-	private $modifiedBy=null;
-	private $territories=null;
-	private $reportingTo=null;
-	private $isOnline=null;
-	private $currency=null;
-	private $createdTime=null;
-	private $modifiedTime=null;
-	private $fieldNameVsValue=array();
-	public static $defaultKeys=array("Currency","Modified_Time","created_time","territories","reporting_to","Isonline","created_by","Modified_By","country","id","name","role","customize_info","city","signature","name_format","language","locale","personal_account","default_tab_group","alias","street","theme","state","country_locale","fax","first_name","email","zip","decimal_separator","website","time_format","profile","mobile","last_name","time_zone","zuid","confirm","full_name","phone","dob","date_format","status");
-	
-	
-	private function __construct($id,$name)
-	{
-		$this->id=$id;
-		$this->name=$name;
-	}
-	
-	public static function getInstance($id,$name)
-	{
-		return new ZCRMUser($id,$name);
-	}
+  private $id=null;
+  private $name=null;
+  private $signature=null;
+  private $country=null;
+  private $role=null;
+  private $customizeInfo=null;
+  private $city=null;
+  private $nameFormat=null;
+  private $language=null;
+  private $locale=null;
+  private $isPersonalAccount=null;
+  private $defaultTabGroup=null;
+  private $street=null;
+  private $alias=null;
+  private $theme=null;
+  private $state=null;
+  private $countryLocale=null;
+  private $fax=null;
+  private $firstName=null;
+  private $email=null;
+  private $zip=null;
+  private $decimalSeparator=null;
+  private $website=null;
+  private $timeFormat=null;
+  private $profile=null;
+  private $mobile=null;
+  private $lastName=null;
+  private $timeZone=null;
+  private $zuid=null;
+  private $isConfirm=null;
+  private $fullName=null;
+  private $phone=null;
+  private $dob=null;
+  private $dateFormat=null;
+  private $status=null;
+  private $createdBy=null;
+  private $modifiedBy=null;
+  private $territories=null;
+  private $reportingTo=null;
+  private $isOnline=null;
+  private $currency=null;
+  private $createdTime=null;
+  private $modifiedTime=null;
+  private $fieldNameVsValue=array();
+  public static $defaultKeys=array("Currency","Modified_Time","created_time","territories","reporting_to","Isonline","created_by","Modified_By","country","id","name","role","customize_info","city","signature","name_format","language","locale","personal_account","default_tab_group","alias","street","theme","state","country_locale","fax","first_name","email","zip","decimal_separator","website","time_format","profile","mobile","last_name","time_zone","zuid","confirm","full_name","phone","dob","date_format","status");
 
-	/**
-	 * Method to get the field value by api name
-	 * @return String
-	 */
-	public function getFieldValue($apiName){
-		return $this->fieldNameVsValue[$apiName];
-	}
-	
-	/**
-	 * Method to set the field value for api name
-	 * @param $apiName,$value
-	 */
-	public function setFieldValue($apiName,$value){
-		$this->fieldNameVsValue[$apiName] = $value;
-	}
-	
-	public function getData()
-	{
-		return $this->fieldNameVsValue;
-	}
-	
+
+  private function __construct($id,$name)
+  {
+    $this->id=$id;
+    $this->name=$name;
+  }
+
+  public static function getInstance($id,$name)
+  {
+    return new ZCRMUser($id,$name);
+  }
+
+  /**
+   * Method to get the field value by api name
+   * @return String
+   */
+  public function getFieldValue($apiName){
+    return $this->fieldNameVsValue[$apiName];
+  }
+
+  /**
+   * Method to set the field value for api name
+   * @param $apiName,$value
+   */
+  public function setFieldValue($apiName,$value){
+    $this->fieldNameVsValue[$apiName] = $value;
+  }
+
+  public function getData()
+  {
+    return $this->fieldNameVsValue;
+  }
+
     /**
      * id
      * @return Long
@@ -726,44 +726,44 @@ class ZCRMUser
     public function setIsOnline($isOnline){
         $this->isOnline = $isOnline;
     }
-    
+
     public function geCurrency(){
-    	return $this->currency;
+      return $this->currency;
     }
-    
+
     public function setCurrency($currency){
-    	$this->currency = $currency;
+      $this->currency = $currency;
     }
     /**
      * createdTime
      * @return String
      */
     public function getCreatedTime(){
-    	return $this->createdTime;
+      return $this->createdTime;
     }
-    
+
     /**
      * createdTime
      * @param String $createdTime
      */
     public function setCreatedTime($createdTime){
-    	$this->createdTime = $createdTime;
+      $this->createdTime = $createdTime;
     }
-    
+
     /**
      * modifiedTime
      * @return String
      */
     public function getModifiedTime(){
-    	return $this->modifiedTime;
+      return $this->modifiedTime;
     }
-    
+
     /**
      * modifiedTime
      * @param String $modifiedTime
      */
     public function setModifiedTime($modifiedTime){
-    	$this->modifiedTime = $modifiedTime;
+      $this->modifiedTime = $modifiedTime;
     }
 }
 ?>

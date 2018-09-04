@@ -3,96 +3,96 @@ require_once realpath(dirname(__FILE__).'/../api/handler/RelatedListAPIHandler.p
 
 class ZCRMModuleRelation
 {
-	
-	private $label=null;
-	private $apiName=null;
-	private $id=null;
-	private $parentModuleAPIName=null;
-	private $visible=null;
-	
-	private $parentRecord=null;
-	private $junctionRecord;
-	
-	private function __construct($parentModuleAPINameOrParentRecord,$relatedListAPINameOrJunctionRecord)
-	{
-		if($parentModuleAPINameOrParentRecord instanceof ZCRMRecord)
-		{
-			$this->parentRecord=$parentModuleAPINameOrParentRecord;
-		}
-		else
-		{
-			$this->parentModuleAPIName=$parentModuleAPINameOrParentRecord;
-		}
-		
-		if($relatedListAPINameOrJunctionRecord instanceof ZCRMJunctionRecord)
-		{
-			$this->junctionRecord=$relatedListAPINameOrJunctionRecord;
-		}
-		else {
-			$this->apiName=$relatedListAPINameOrJunctionRecord;
-		}
-	}
-	public static function getInstance($parentModuleAPINameOrParentRecord,$relatedListAPIName)
-	{
-		return new ZCRMModuleRelation($parentModuleAPINameOrParentRecord,$relatedListAPIName);
-	}
-	
-	public function getRecords($sortByField=null,$sortOrder=null,$page=1,$perPage=20)
-	{
-		return RelatedListAPIHandler::getInstance($this->parentRecord,$this)->getRecords($sortByField,$sortOrder,$page,$perPage);
-	}
-	
-	public function getNotes($sortByField=null,$sortOrder=null,$page=1,$perPage=20)
-	{
-		return RelatedListAPIHandler::getInstance($this->parentRecord,$this)->getNotes($sortByField,$sortOrder,$page,$perPage);
-	}
-	
-	public function addNote($zcrmNote)
-	{
-		return RelatedListAPIHandler::getInstance($this->parentRecord,$this)->addNote($zcrmNote);
-	}
-	
-	public function updateNote($zcrmNote)
-	{
-		return RelatedListAPIHandler::getInstance($this->parentRecord,$this)->updateNote($zcrmNote);
-	}
-	
-	public function deleteNote($zcrmNote)
-	{
-		return RelatedListAPIHandler::getInstance($this->parentRecord,$this)->deleteNote($zcrmNote);
-	}
-	
-	public function getAttachments($page,$perPage)
-	{
-		return RelatedListAPIHandler::getInstance($this->parentRecord,$this)->getAttachments($page,$perPage);
-	}
-	
-	public function uploadAttachment($filePath)
-	{
-		return RelatedListAPIHandler::getInstance($this->parentRecord,$this)->uploadAttachment($filePath);
-	}
-	public function uploadLinkAsAttachment($attachmentUrl)
-	{
-		return RelatedListAPIHandler::getInstance($this->parentRecord,$this)->uploadLinkAsAttachment($attachmentUrl);
-	}
-	
-	public function downloadAttachment($attachmentId)
-	{
-		return RelatedListAPIHandler::getInstance($this->parentRecord,$this)->downloadAttachment($attachmentId);
-	}
-	public function deleteAttachment($attachmentId)
-	{
-		return RelatedListAPIHandler::getInstance($this->parentRecord,$this)->deleteAttachment($attachmentId);
-	}
-	public function addRelation()
-	{
-		return RelatedListAPIHandler::getInstance($this->parentRecord, $this->junctionRecord)->addRelation();
-	}
-	public function removeRelation()
-	{
-		return RelatedListAPIHandler::getInstance($this->parentRecord, $this->junctionRecord)->removeRelation();
-	}
-	
+
+  private $label=null;
+  private $apiName=null;
+  private $id=null;
+  private $parentModuleAPIName=null;
+  private $visible=null;
+
+  private $parentRecord=null;
+  private $junctionRecord;
+
+  private function __construct($parentModuleAPINameOrParentRecord,$relatedListAPINameOrJunctionRecord)
+  {
+    if($parentModuleAPINameOrParentRecord instanceof ZCRMRecord)
+    {
+      $this->parentRecord=$parentModuleAPINameOrParentRecord;
+    }
+    else
+    {
+      $this->parentModuleAPIName=$parentModuleAPINameOrParentRecord;
+    }
+
+    if($relatedListAPINameOrJunctionRecord instanceof ZCRMJunctionRecord)
+    {
+      $this->junctionRecord=$relatedListAPINameOrJunctionRecord;
+    }
+    else {
+      $this->apiName=$relatedListAPINameOrJunctionRecord;
+    }
+  }
+  public static function getInstance($parentModuleAPINameOrParentRecord,$relatedListAPIName)
+  {
+    return new ZCRMModuleRelation($parentModuleAPINameOrParentRecord,$relatedListAPIName);
+  }
+
+  public function getRecords($sortByField=null,$sortOrder=null,$page=1,$perPage=20)
+  {
+    return RelatedListAPIHandler::getInstance($this->parentRecord,$this)->getRecords($sortByField,$sortOrder,$page,$perPage);
+  }
+
+  public function getNotes($sortByField=null,$sortOrder=null,$page=1,$perPage=20)
+  {
+    return RelatedListAPIHandler::getInstance($this->parentRecord,$this)->getNotes($sortByField,$sortOrder,$page,$perPage);
+  }
+
+  public function addNote($zcrmNote)
+  {
+    return RelatedListAPIHandler::getInstance($this->parentRecord,$this)->addNote($zcrmNote);
+  }
+
+  public function updateNote($zcrmNote)
+  {
+    return RelatedListAPIHandler::getInstance($this->parentRecord,$this)->updateNote($zcrmNote);
+  }
+
+  public function deleteNote($zcrmNote)
+  {
+    return RelatedListAPIHandler::getInstance($this->parentRecord,$this)->deleteNote($zcrmNote);
+  }
+
+  public function getAttachments($page,$perPage)
+  {
+    return RelatedListAPIHandler::getInstance($this->parentRecord,$this)->getAttachments($page,$perPage);
+  }
+
+  public function uploadAttachment($filePath)
+  {
+    return RelatedListAPIHandler::getInstance($this->parentRecord,$this)->uploadAttachment($filePath);
+  }
+  public function uploadLinkAsAttachment($attachmentUrl)
+  {
+    return RelatedListAPIHandler::getInstance($this->parentRecord,$this)->uploadLinkAsAttachment($attachmentUrl);
+  }
+
+  public function downloadAttachment($attachmentId)
+  {
+    return RelatedListAPIHandler::getInstance($this->parentRecord,$this)->downloadAttachment($attachmentId);
+  }
+  public function deleteAttachment($attachmentId)
+  {
+    return RelatedListAPIHandler::getInstance($this->parentRecord,$this)->deleteAttachment($attachmentId);
+  }
+  public function addRelation()
+  {
+    return RelatedListAPIHandler::getInstance($this->parentRecord, $this->junctionRecord)->addRelation();
+  }
+  public function removeRelation()
+  {
+    return RelatedListAPIHandler::getInstance($this->parentRecord, $this->junctionRecord)->removeRelation();
+  }
+
 
     /**
      * label

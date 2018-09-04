@@ -2,22 +2,22 @@
 
 class ZCRMProfileCategory
 {
-	private $name;
-	private $module;
-	private $displayLabel;
-	private $permissionIds=array();
-	
-	private function __construct($name)
-	{
-		$this->name=$name;
-	}
-	
-	public static function getInstance($name)
-	{
-		return new ZCRMProfileCategory($name);
-	}
-	
-	
+  private $name;
+  private $module;
+  private $displayLabel;
+  private $permissionIds=array();
+
+  private function __construct($name)
+  {
+    $this->name=$name;
+  }
+
+  public static function getInstance($name)
+  {
+    return new ZCRMProfileCategory($name);
+  }
+
+
 
     /**
      * name

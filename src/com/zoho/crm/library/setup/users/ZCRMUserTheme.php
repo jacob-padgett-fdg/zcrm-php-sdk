@@ -1,27 +1,27 @@
 <?php
 /**
- * 
+ *
  * @author sumanth-3058
  *
  */
 class ZCRMUserTheme
 {
-	
-	private $normalTabFontColor=null;
-	private $normalTabBackground=null;
-	private $selectedTabFontColor=null;
-	private $selectedTabBackground=null;
-	private function __construct()
-	{
-		
-	}
-	
-	public static function getInstance()
-	{
-		return new ZCRMUserTheme();
-	}
-	
-	
+
+  private $normalTabFontColor=null;
+  private $normalTabBackground=null;
+  private $selectedTabFontColor=null;
+  private $selectedTabBackground=null;
+  private function __construct()
+  {
+
+  }
+
+  public static function getInstance()
+  {
+    return new ZCRMUserTheme();
+  }
+
+
 
     /**
      * normalTabFontColor

@@ -3,15 +3,15 @@ require_once realpath(dirname(__FILE__)."/../../../../../com/zoho/crm/library/co
 require_once realpath(dirname(__FILE__)."/../../common/PHPUnitTestUtil.php");
 class APIConstantsTest extends \PHPUnit_Framework_TestCase
 {
-	public function setUp()
-	{
-		$this->instance=new PHPUnitTestUtil();
-	}
-	
-	public function tearDown()
-	{
-		unset($this->instance);
-	}
+  public function setUp()
+  {
+    $this->instance=new PHPUnitTestUtil();
+  }
+
+  public function tearDown()
+  {
+    unset($this->instance);
+  }
     public function testConstants()
     {
         $this->instance->assertEqualsCheck('error',APIConstants::ERROR);
@@ -42,7 +42,7 @@ class APIConstantsTest extends \PHPUnit_Framework_TestCase
         $this->instance->assertEqualsCheck('message',APIConstants::MESSAGE);
         $this->instance->assertEqualsCheck('code',APIConstants::CODE);
         $this->instance->assertEqualsCheck('status',APIConstants::STATUS);
-        
+
         $this->instance->assertEqualsCheck('data',APIConstants::DATA);
         $this->instance->assertEqualsCheck('info',APIConstants::INFO);
         $this->instance->assertEqualsCheck(200,APIConstants::RESPONSECODE_OK);
@@ -62,8 +62,8 @@ class APIConstantsTest extends \PHPUnit_Framework_TestCase
         $this->instance->assertEqualsCheck(429,APIConstants::RESPONSECODE_TOO_MANY_REQUEST);
         $this->instance->assertEqualsCheck(500,APIConstants::RESPONSECODE_INTERNAL_SERVER_ERROR);
         $this->instance->assertEqualsCheck("../../../../../../resources",APIConstants::DOWNLOAD_FILE_PATH);
-        
+
     }
-    
+
 }
 ?>

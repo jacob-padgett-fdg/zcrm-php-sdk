@@ -4,67 +4,67 @@ require_once realpath(dirname(__FILE__)."/../../exception/ZCRMException.php");
 
 class FileAPIResponse
 {
-	private $response=null;
-	private $responseJSON=null;
-	private $httpStatusCode=null;
-	private $responseHeaders=null;
-	private $code=null;
-	private $message=null;
-	private $details=null;
-	private $status=null;
-	
-	public function setFileContent($httpResponse,$httpStatusCode)
-	{
-		$this->httpStatusCode=$httpStatusCode;
-		if($httpStatusCode==APIConstants::RESPONSECODE_NO_CONTENT)
-		{
-			$this->responseJSON=array();
-			$this->responseHeaders=array();
-			$exception=new ZCRMException(APIConstants::INVALID_ID_MSG,$httpStatusCode);
-			$exception->setExceptionCode("No Content");
-			throw $exception;
-		}
-		list($headers, $content) = explode("\r\n\r\n",$httpResponse,2);
-		$headerArray=(explode("\r\n",$headers,50));
-		$headerMap=array();
-		foreach ($headerArray as $key)
-		{
-			if(strpos($key,":")!=false)
-			{
-				$splitArray=explode(":",$key);
-				$headerMap[$splitArray[0]]=$splitArray[1];
-			}
-		}
-		if(in_array($httpStatusCode,APIExceptionHandler::getFaultyResponseCodes()))
-		{
-			$content=json_decode($content,true);
-			$this->responseJSON=$content;
-			$exception=new ZCRMException($content['message'],$httpStatusCode);
-			$exception->setExceptionCode($content['code']);
-			$exception->setExceptionDetails($content['details']);
-			throw $exception;
-		}
-		else if($httpStatusCode==APIConstants::RESPONSECODE_OK)
-		{
-			$this->response=$content;
-			$this->responseJSON=array();
-			$this->status=APIConstants::STATUS_SUCCESS;
-		}
-		$this->responseHeaders=$headerMap;
-		return $this;
-	}
-	
-	public function getFileName()
-	{
-		$contentDisp=self::getResponseHeaders()['Content-Disposition'];
-		$fileName=substr($contentDisp,strrpos($contentDisp,"'")+1,strlen($contentDisp));
-		return $fileName;
-	}
-	
-	public function getFileContent()
-	{
-		return $this->response;
-	}
+  private $response=null;
+  private $responseJSON=null;
+  private $httpStatusCode=null;
+  private $responseHeaders=null;
+  private $code=null;
+  private $message=null;
+  private $details=null;
+  private $status=null;
+
+  public function setFileContent($httpResponse,$httpStatusCode)
+  {
+    $this->httpStatusCode=$httpStatusCode;
+    if($httpStatusCode==APIConstants::RESPONSECODE_NO_CONTENT)
+    {
+      $this->responseJSON=array();
+      $this->responseHeaders=array();
+      $exception=new ZCRMException(APIConstants::INVALID_ID_MSG,$httpStatusCode);
+      $exception->setExceptionCode("No Content");
+      throw $exception;
+    }
+    list($headers, $content) = explode("\r\n\r\n",$httpResponse,2);
+    $headerArray=(explode("\r\n",$headers,50));
+    $headerMap=array();
+    foreach ($headerArray as $key)
+    {
+      if(strpos($key,":")!=false)
+      {
+        $splitArray=explode(":",$key);
+        $headerMap[$splitArray[0]]=$splitArray[1];
+      }
+    }
+    if(in_array($httpStatusCode,APIExceptionHandler::getFaultyResponseCodes()))
+    {
+      $content=json_decode($content,true);
+      $this->responseJSON=$content;
+      $exception=new ZCRMException($content['message'],$httpStatusCode);
+      $exception->setExceptionCode($content['code']);
+      $exception->setExceptionDetails($content['details']);
+      throw $exception;
+    }
+    else if($httpStatusCode==APIConstants::RESPONSECODE_OK)
+    {
+      $this->response=$content;
+      $this->responseJSON=array();
+      $this->status=APIConstants::STATUS_SUCCESS;
+    }
+    $this->responseHeaders=$headerMap;
+    return $this;
+  }
+
+  public function getFileName()
+  {
+    $contentDisp=self::getResponseHeaders()['Content-Disposition'];
+    $fileName=substr($contentDisp,strrpos($contentDisp,"'")+1,strlen($contentDisp));
+    return $fileName;
+  }
+
+  public function getFileContent()
+  {
+    return $this->response;
+  }
 
     /**
      * response
@@ -179,10 +179,10 @@ class FileAPIResponse
     public function setDetails($details){
         $this->details = $details;
     }
-    
+
     public function getStatus()
     {
-    	return $this->status;
+      return $this->status;
     }
 
 }

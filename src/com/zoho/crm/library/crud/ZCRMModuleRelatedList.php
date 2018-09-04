@@ -2,29 +2,29 @@
 
 class ZCRMModuleRelatedList
 {
-	private $apiName=null;
-	private $module=null;
-	private $displayLabel=null;
-	private $visible=null;
-	private $name=null;
-	private $id=null;
-	private $href=null;
-	private $type=null;
-	
-	private function __construct($apiName)
-	{
-		$this->apiName=$apiName;
-	}
-	
-	public static function getInstance($apiName)
-	{
-		return new ZCRMModuleRelatedList($apiName);
-	}
-	
-	public function setApiName($apiName)
-	{
-		$this->apiName=$apiName;
-	}
+  private $apiName=null;
+  private $module=null;
+  private $displayLabel=null;
+  private $visible=null;
+  private $name=null;
+  private $id=null;
+  private $href=null;
+  private $type=null;
+
+  private function __construct($apiName)
+  {
+    $this->apiName=$apiName;
+  }
+
+  public static function getInstance($apiName)
+  {
+    return new ZCRMModuleRelatedList($apiName);
+  }
+
+  public function setApiName($apiName)
+  {
+    $this->apiName=$apiName;
+  }
 
     /**
      * apiName
@@ -152,17 +152,17 @@ class ZCRMModuleRelatedList
     public function setType($type){
         $this->type = $type;
     }
-    
+
     public function setRelatedListProperties($relatedListDetails)
     {
-    	$this->setModule($relatedListDetails['module']);
-    	$this->setDisplaylabel($relatedListDetails['display_label']);
-    	$this->setId($relatedListDetails['id']);
-    	$this->setName($relatedListDetails['name']);
-    	$this->setType($relatedListDetails['type']);
-    	$this->setHref($relatedListDetails['href']);
-    	$this->setVisible(isset($relatedListDetails['visible'])?(boolean)$relatedListDetails['visible']:false);
-    	return $this;
+      $this->setModule($relatedListDetails['module']);
+      $this->setDisplaylabel($relatedListDetails['display_label']);
+      $this->setId($relatedListDetails['id']);
+      $this->setName($relatedListDetails['name']);
+      $this->setType($relatedListDetails['type']);
+      $this->setHref($relatedListDetails['href']);
+      $this->setVisible(isset($relatedListDetails['visible'])?(boolean)$relatedListDetails['visible']:false);
+      return $this;
     }
 
 }

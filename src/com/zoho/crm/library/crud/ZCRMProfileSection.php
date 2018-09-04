@@ -2,18 +2,18 @@
 
 class ZCRMProfileSection
 {
-	private $name;
-	private $categories=array();
-	private function __construct($name)
-	{
-		$this->name=$name;
-	}
-	public static function getInstance($name)
-	{
-		return new ZCRMProfileSection($name);
-	}
-	
-	
+  private $name;
+  private $categories=array();
+  private function __construct($name)
+  {
+    $this->name=$name;
+  }
+  public static function getInstance($name)
+  {
+    return new ZCRMProfileSection($name);
+  }
+
+
 
     /**
      * name

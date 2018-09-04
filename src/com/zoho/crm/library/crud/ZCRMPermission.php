@@ -2,22 +2,22 @@
 
 class ZCRMPermission
 {
-	private $displayLabel;
-	private $module;
-	private $id;
-	private $name;
-	private $enabled;
+  private $displayLabel;
+  private $module;
+  private $id;
+  private $name;
+  private $enabled;
 
-	private function __construct($name,$id)
-	{
-		$this->name=$name;
-		$this->id=$id;
-	}
-	
-	public static function getInstance($name,$id)
-	{
-		return new ZCRMPermission($name,$id);
-	}
+  private function __construct($name,$id)
+  {
+    $this->name=$name;
+    $this->id=$id;
+  }
+
+  public static function getInstance($name,$id)
+  {
+    return new ZCRMPermission($name,$id);
+  }
     /**
      * displayLabel
      * @return String

@@ -4,34 +4,34 @@ require_once realpath(dirname(__FILE__)."/../../common/APIConstants.php");
 
 class EntityResponse
 {
-	private $status=null;
-	private $message=null;
-	private $code=null;
-	private $responseJSON=null;
-	private $data=null;
-	private $upsertDetails=array();
-	private $details=null;
-	
-	public function __construct($entityResponseJSON)
-	{
-		$this->responseJSON=$entityResponseJSON;
-		$this->status=$entityResponseJSON[APIConstants::STATUS];
-		$this->message=$entityResponseJSON[APIConstants::MESSAGE];
-		$this->code=$entityResponseJSON[APIConstants::CODE];
-		
-		if(array_key_exists(APIConstants::ACTION,$entityResponseJSON))
-		{
-			$this->upsertDetails[APIConstants::ACTION]=$entityResponseJSON[APIConstants::ACTION];
-		}
-		if(array_key_exists(APIConstants::DUPLICATE_FIELD,$entityResponseJSON))
-		{
-			$this->upsertDetails[APIConstants::DUPLICATE_FIELD]=$entityResponseJSON[APIConstants::DUPLICATE_FIELD];
-		}
-		if(array_key_exists("details",$entityResponseJSON))
-		{
-			$this->details=$entityResponseJSON["details"];
-		}
-	}
+  private $status=null;
+  private $message=null;
+  private $code=null;
+  private $responseJSON=null;
+  private $data=null;
+  private $upsertDetails=array();
+  private $details=null;
+
+  public function __construct($entityResponseJSON)
+  {
+    $this->responseJSON=$entityResponseJSON;
+    $this->status=$entityResponseJSON[APIConstants::STATUS];
+    $this->message=$entityResponseJSON[APIConstants::MESSAGE];
+    $this->code=$entityResponseJSON[APIConstants::CODE];
+
+    if(array_key_exists(APIConstants::ACTION,$entityResponseJSON))
+    {
+      $this->upsertDetails[APIConstants::ACTION]=$entityResponseJSON[APIConstants::ACTION];
+    }
+    if(array_key_exists(APIConstants::DUPLICATE_FIELD,$entityResponseJSON))
+    {
+      $this->upsertDetails[APIConstants::DUPLICATE_FIELD]=$entityResponseJSON[APIConstants::DUPLICATE_FIELD];
+    }
+    if(array_key_exists("details",$entityResponseJSON))
+    {
+      $this->details=$entityResponseJSON["details"];
+    }
+  }
 
     /**
      * status
@@ -111,17 +111,17 @@ class EntityResponse
      */
     public function getUpsertDetails()
     {
-    	return $this->upsertDetails;
+      return $this->upsertDetails;
     }
-    
+
     public function setDetails($details)
     {
-    	$this->details=$details;
+      $this->details=$details;
     }
-    
+
     public function getDetails()
     {
-    	return $this->details;
+      return $this->details;
     }
 
 }

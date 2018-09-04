@@ -2,21 +2,21 @@
 
 class ZCRMJunctionRecord
 {
-	private $id;
-	private $apiName;
-	private $relatedDetails=array();
-	
-	private function __construct($apiName,$id)
-	{
-		$this->apiName=$apiName;
-		$this->id=$id;
-	}
-	public static function getInstance($apiName,$id)
-	{
-		return new ZCRMJunctionRecord($apiName,$id);
-	}
-	
-	
+  private $id;
+  private $apiName;
+  private $relatedDetails=array();
+
+  private function __construct($apiName,$id)
+  {
+    $this->apiName=$apiName;
+    $this->id=$id;
+  }
+  public static function getInstance($apiName,$id)
+  {
+    return new ZCRMJunctionRecord($apiName,$id);
+  }
+
+
 
     /**
      * id

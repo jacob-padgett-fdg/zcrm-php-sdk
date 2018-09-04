@@ -2,23 +2,23 @@
 
 class ZCRMRole
 {
-	private $name=null;
-	private $id=null;
-	private $reportingTo=null;
-	private $label=null;
-	private $isAdmin=null;
-	
-	private function __construct($roleId,$roleName)
-	{
-		$this->id=$roleId;
-		$this->name=$roleName;
-	}
-	
-	public static function getInstance($roleId,$roleName)
-	{
-		return new ZCRMRole($roleId,$roleName);
-	}
-	
+  private $name=null;
+  private $id=null;
+  private $reportingTo=null;
+  private $label=null;
+  private $isAdmin=null;
+
+  private function __construct($roleId,$roleName)
+  {
+    $this->id=$roleId;
+    $this->name=$roleName;
+  }
+
+  public static function getInstance($roleId,$roleName)
+  {
+    return new ZCRMRole($roleId,$roleName);
+  }
+
 
     /**
      * get the Name of the Role name

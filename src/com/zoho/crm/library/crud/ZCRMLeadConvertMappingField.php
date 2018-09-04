@@ -2,20 +2,20 @@
 
 class ZCRMLeadConvertMappingField
 {
-	private $apiName;
-	private $id;
-	private $fieldLabel;
-	private $required;
-	private function __construct($apiName,$id)
-	{
-		$this->apiName=$apiName;
-		$this->id=$id;
-	}
-	
-	public static function getInstance($apiName,$id)
-	{
-		return new ZCRMLeadConvertMappingField($apiName,$id);
-	}
+  private $apiName;
+  private $id;
+  private $fieldLabel;
+  private $required;
+  private function __construct($apiName,$id)
+  {
+    $this->apiName=$apiName;
+    $this->id=$id;
+  }
+
+  public static function getInstance($apiName,$id)
+  {
+    return new ZCRMLeadConvertMappingField($apiName,$id);
+  }
 
     /**
      * apiName
